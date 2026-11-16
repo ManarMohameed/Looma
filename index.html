@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Looma - My Wardrobe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- الهيدر -->
+    <header class="header">
+      <h1>My Wardrobe</h1>
+      <p>Your wardrobe, your story</p>
+    </header>
+
+    <!-- البحث -->
+    <input class="search" type="search" placeholder="Search items, brands, or product numbers...">
+
+    <!-- الأقسام -->
+    <nav class="categories">
+      <button class="chip active">All</button>
+      <button class="chip">Tops</button>
+      <button class="chip">Bottoms</button>
+      <button class="chip">Outerwear</button>
+      <button class="chip">Shoes</button>
+      <button class="chip">Accessories</button>
+    </nav>
+
+    <!-- عرض القطع -->
+    <main class="items">
+      <div class="card">
+        <div class="photo">Photo</div>
+        <h3>Pink blazer</h3>
+        <p>Zara - 1234/567</p>
+      </div>
+
+      <div class="card">
+        <div class="photo">Photo</div>
+        <h3>Cream blouse</h3>
+        <p>Mango - 4821/030</p>
+      </div>
+
+      <div class="card">
+        <div class="photo">Photo</div>
+        <h3>Light jeans</h3>
+        <p>Zara - 5862/410</p>
+      </div>
+
+      <div class="card">
+        <div class="photo">Photo</div>
+        <h3>White sneakers</h3>
+        <p>Mango - 7710/220</p>
+      </div>
+    </main>
+
+    <!-- نموذج إضافة قطعة -->
+    <section class="add-form">
+      <h2>Add new item</h2>
+
+      <label>Brand</label>
+      <select>
+        <option>Zara</option>
+        <option>Mango</option>
+        <option>COS</option>
+        <option>H&amp;M</option>
+      </select>
+
+      <label>Product number</label>
+      <input type="text" placeholder="1234/567/800">
+
+      <label>Or upload a photo</label>
+      <input type="file" accept="image/*">
+
+      <button class="add-btn">Add item</button>
+    </section>
+
+    <!-- الشريط السفلي -->
+    <footer class="navbar">
+      <a href="#">Home</a>
+      <a href="#" class="current">Wardrobe</a>
+      <a href="#">Planner</a>
+      <a href="#">Profile</a>
+    </footer>
+
+  </div>
+
+</body>
+</html>

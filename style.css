@@ -1,0 +1,167 @@
+/* الألوان (من لوحة الهوية) */
+:root {
+  --blush: #FADDE1;
+  --cream: #F8EDEB;
+  --rose: #E9B7C2;
+  --dusty: #D98CA0;
+  --mauve: #B8647A;
+  --text: #5A3340;
+}
+
+/* إعدادات عامة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: var(--blush);
+}
+
+/* إطار التطبيق (بحجم الجوال) */
+.app {
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: white;
+  padding: 20px 20px 90px;
+}
+
+/* الهيدر */
+.header h1 {
+  font-family: "Playfair Display", serif;
+  color: var(--mauve);
+  font-size: 28px;
+}
+
+.header p {
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+/* البحث */
+.search {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 25px;
+  background: var(--cream);
+  margin-bottom: 14px;
+}
+
+/* الأقسام */
+.categories {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 18px;
+}
+
+.chip {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: var(--cream);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.chip.active {
+  background: var(--mauve);
+  color: white;
+}
+
+/* شبكة القطع (عمودين) */
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.photo {
+  height: 160px;
+  background: var(--rose);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.card h3 {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.card p {
+  font-size: 12px;
+  color: var(--dusty);
+}
+
+/* نموذج الإضافة */
+.add-form {
+  background: var(--cream);
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.add-form h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 12px;
+}
+
+.add-form label {
+  display: block;
+  font-size: 12px;
+  margin: 10px 0 4px;
+}
+
+.add-form input,
+.add-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--rose);
+  border-radius: 10px;
+  background: white;
+}
+
+.add-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: var(--mauve);
+  color: white;
+  cursor: pointer;
+}
+
+/* الشريط السفلي (ثابت تحت) */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 0;
+  background: white;
+  border-top: 1px solid var(--cream);
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.navbar a.current {
+  color: var(--mauve);
+  font-weight: 500;
+}

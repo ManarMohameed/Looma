@@ -29,24 +29,52 @@ public class WardrobeItem {
     @Column(name = "image_url")
     private String imageUrl;
 
-    public Integer getItemId() { return itemId; }
-    public void setItemId(Integer itemId) { this.itemId = itemId; }
+        public Integer getItemId() {
+             return itemId; 
+             }
+        public void setItemId(Integer itemId) {
+             this.itemId = itemId; 
+             }
 
-    public Integer getUserId() { return userId; }
-    public void setUserId(Integer userId) { this.userId = userId; }
+        public Integer getUserId() {
+             return userId; 
+             }
+        public void setUserId(Integer userId) {
+             this.userId = userId; 
+             }
 
-    public String getItemName() { return itemName; }
-    public void setItemName(String itemName) { this.itemName = itemName; }
+        public String getItemName() {
+             return itemName; 
+             }
+        public void setItemName(String itemName) {
+             this.itemName = itemName; 
+             }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+        public String getCategory() {
+             return category; 
+             }
+        public void setCategory(String category) {
+             this.category = category; 
+             }
 
-    public String getBrand() { return brand; }
-    public void setBrand(String brand) { this.brand = brand; }
+        public String getBrand() {
+             return brand; 
+             }
+        public void setBrand(String brand) {
+             this.brand = brand; 
+             }
 
-    public String getProductNumber() { return productNumber; }
-    public void setProductNumber(String productNumber) { this.productNumber = productNumber; }
+        public String getProductNumber() {
+             return productNumber; 
+             }
+        public void setProductNumber(String productNumber) {
+             this.productNumber = productNumber; 
+             }
 
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+        public String getImageUrl() {
+             return imageUrl; 
+             }
+        public void setImageUrl(String imageUrl) {
+             this.imageUrl = imageUrl; 
+             }
 }

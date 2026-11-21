@@ -1,8 +1,8 @@
 package com.looma.looma.service;
 import java.util.List;
-
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.server.ResponseStatusException;
 import com.looma.looma.entity.WardrobeItem;
 import com.looma.looma.repository.WardrobeItemRepository;
 
@@ -21,5 +21,13 @@ public class WardrobeBrowseService {
 	        }
 	        return itemRepository.findByUserIdAndCategoryIgnoreCase(userId, category.trim());
 	    }
+
+	    public void deleteItem(Integer itemId) {
+	        if (!itemRepository.existsById(itemId)) {
+	            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
+	        }
+	        itemRepository.deleteById(itemId);
+	    }
 	}
+	
 

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import com.looma.looma.entity.WardrobeItem;
 import com.looma.looma.repository.WardrobeItemRepository;
+import com.looma.looma.validation.ItemCategory;
 
 @Service
 public class WardrobeBrowseService {
@@ -19,7 +20,8 @@ public class WardrobeBrowseService {
 	        if (category == null || category.isBlank()) {
 	            return itemRepository.findByUserId(userId);
 	        }
-	        return itemRepository.findByUserIdAndCategoryIgnoreCase(userId, category.trim());
+	        String validCategory = ItemCategory.normalize(category);
+	        return itemRepository.findByUserIdAndCategoryIgnoreCase(userId, validCategory);
 	    }
 
 	    public void deleteItem(Integer itemId) {

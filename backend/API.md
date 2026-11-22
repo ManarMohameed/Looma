@@ -62,8 +62,32 @@ Errors: `400` missing userId or invalid category
 
 Success: `204 No Content` (empty body). Error: `404` item not found.
 
-### Add / edit / get one item
-Coming from Maria. These will use the same base path `/api/items`.
+### Add an item
+POST /api/items
+
+Body (JSON):
+{ "userId": 1, "itemName": "Red Dress", "category": "Dresses", "brand": "Zara", "productNumber": "Z300", "imageUrl": null }
+- userId and itemName and category are required
+- itemName max 100 chars, brand and productNumber max 50, imageUrl max 255
+- category must be one of: Tops, Bottoms, Dresses, Shoes, Accessories (not case sensitive)
+- imageUrl is optional: upload the image first with POST /api/images, then send the returned imageUrl
+
+Success 201 Created:
+{ "itemId": 2, "userId": 1, "itemName": "Red Dress", "category": "Dresses", "brand": "Zara", "productNumber": "Z300", "imageUrl": null }
+Errors: 400 invalid fields or invalid category, 404 user not found
+
+### Edit an item
+PUT /api/items/{itemId}
+
+Body (JSON): same as Add an item. userId is required in the body but the item's owner does not change.
+
+Success 200 OK: the updated item, same shape as above.
+Errors: 400 invalid fields or invalid category, 404 item not found
+
+### Get one item
+GET /api/items/{itemId}
+
+Success 200 OK: the item, same shape as above. Error: 404 item not found.
 
 ## Images
 

@@ -34,12 +34,50 @@ Success `200 OK`: same shape as above. Error: `404` user not found.
 
 ## Wardrobe items
 
+Allowed categories (not case sensitive, saved in the correct form): `Tops`, `Bottoms`, `Dresses`, `Shoes`, `Accessories`
+
+### Add an item
+`POST /api/items`
+
+Body (JSON):
+```json
+{
+  "userId": 1,
+  "itemName": "Red Sneakers",
+  "category": "Shoes",
+  "brand": "Nike",
+  "productNumber": "N300",
+  "imageUrl": "/uploads/3f2a1c7e-....jpg"
+}
+```
+- Required: `userId`, `itemName`, `category`
+- Optional: `brand`, `productNumber`, `imageUrl`
+- Max lengths: `itemName` 100, `brand` 50, `productNumber` 50, `imageUrl` 255
+
+Success `201 Created`: the saved item (includes `itemId`).
+Errors: `400` missing field or invalid category, `404` user not found
+
+### Get one item
+`GET /api/items/{itemId}`
+
+Success `200 OK`: the item. Error: `404` item not found.
+
+### Edit an item
+`PUT /api/items/{itemId}`
+
+Body: same as "Add an item".
+- It replaces all fields. Optional fields that are not sent (`brand`, `productNumber`, `imageUrl`) become `null`, so always send the current values you want to keep.
+- `userId` is required in the body, but the owner of the item does not change.
+
+Success `200 OK`: the updated item.
+Errors: `400` missing field or invalid category, `404` item not found
+
 ### List items (with optional category filter)
 `GET /api/items?userId=1`
 `GET /api/items?userId=1&category=Tops`
 
 - `userId` is required
-- `category` is optional. Allowed values (not case sensitive): `Tops`, `Bottoms`, `Dresses`, `Shoes`, `Accessories`
+- `category` is optional (same allowed values as above)
 
 Success `200 OK`:
 ```json
@@ -61,33 +99,6 @@ Errors: `400` missing userId or invalid category
 `DELETE /api/items/{itemId}`
 
 Success: `204 No Content` (empty body). Error: `404` item not found.
-
-### Add an item
-POST /api/items
-
-Body (JSON):
-{ "userId": 1, "itemName": "Red Dress", "category": "Dresses", "brand": "Zara", "productNumber": "Z300", "imageUrl": null }
-- userId and itemName and category are required
-- itemName max 100 chars, brand and productNumber max 50, imageUrl max 255
-- category must be one of: Tops, Bottoms, Dresses, Shoes, Accessories (not case sensitive)
-- imageUrl is optional: upload the image first with POST /api/images, then send the returned imageUrl
-
-Success 201 Created:
-{ "itemId": 2, "userId": 1, "itemName": "Red Dress", "category": "Dresses", "brand": "Zara", "productNumber": "Z300", "imageUrl": null }
-Errors: 400 invalid fields or invalid category, 404 user not found
-
-### Edit an item
-PUT /api/items/{itemId}
-
-Body (JSON): same as Add an item. userId is required in the body but the item's owner does not change.
-
-Success 200 OK: the updated item, same shape as above.
-Errors: 400 invalid fields or invalid category, 404 item not found
-
-### Get one item
-GET /api/items/{itemId}
-
-Success 200 OK: the item, same shape as above. Error: 404 item not found.
 
 ## Images
 
